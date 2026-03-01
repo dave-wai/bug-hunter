@@ -21,8 +21,9 @@ jobs:
       - name: Run agent
         run: dotnet run --project agent/AgentRunner.csproj
         env:
-          OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
-          BACKEND_CALLBACK: ${{ secrets.BACKEND_CALLBACK }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ATLASSIAN_TOKEN: ${{ secrets.ATLASSIAN_TOKEN }}
+            CONFLUENCE_API_TOKEN: ${{ secrets.CONFLUENCE_API_TOKEN }}
+            CONFLUENCE_EMAIL: ${{ secrets.CONFLUENCE_EMAIL }}
+            OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+            MYGITHUB_TOKEN: ${{ secrets.MYGITHUB_TOKEN }}
+
 

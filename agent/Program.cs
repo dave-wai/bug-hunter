@@ -1,3 +1,4 @@
 ﻿var runtime = new AgentRuntime();
-await runtime.RunAsync();
+var result = await runtime.RunAsync();
+Console.WriteLine(result);
 
