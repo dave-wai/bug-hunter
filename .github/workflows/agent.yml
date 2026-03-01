@@ -3,6 +3,9 @@ name: AI Agent Runner
 on:
   workflow_dispatch:
 
+  repository_dispatch:
+    types: [run-agent] # must match your Azure payload event_type
+
 jobs:
   run-agent:
     runs-on: ubuntu-latest
@@ -21,9 +24,7 @@ jobs:
       - name: Run agent
         run: dotnet run --project agent/AgentRunner.csproj
         env:
-            CONFLUENCE_API_TOKEN: ${{ secrets.CONFLUENCE_API_TOKEN }}
-            CONFLUENCE_EMAIL: ${{ secrets.CONFLUENCE_EMAIL }}
-            OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-            MYGITHUB_TOKEN: ${{ secrets.MYGITHUB_TOKEN }}
-
-
+          CONFLUENCE_API_TOKEN: ${{ secrets.CONFLUENCE_API_TOKEN }}
+          CONFLUENCE_EMAIL: ${{ secrets.CONFLUENCE_EMAIL }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          MYGITHUB_TOKEN: ${{ secrets.MYGITHUB_TOKEN }}
